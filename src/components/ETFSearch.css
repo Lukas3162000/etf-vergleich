@@ -1,0 +1,34 @@
+.search-container{
+    box-sizing: border-box;
+    border-radius: 12px;
+    padding: 16px;
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  
+  .input-wrapper {
+    display: grid;
+    grid-template-areas: "AAA B";
+
+  }
+
+  .input-wrapper button{
+    grid-area: "B";
+    background-color: #003d8f;
+    cursor: pointer;
+  }
+
+
+  .search-input{
+    height: 38px;
+    background-color: #E8F2FF; 
+    border-radius: 8px;
+    border:2px solid #003d8f; 
+    color:#003d8f;
+    grid-area: "A";
+  }
+
+  
