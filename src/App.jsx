@@ -13,6 +13,10 @@ function App() {
     setSelectedETFs([...selectedETFs,etf])
   }
 
+  function onRemove(isin){
+    setSelectedETFs(prevETF => prevETF.filter(etf => etf.isin !== isin));
+  }
+
 
   return (
     <>
@@ -20,7 +24,7 @@ function App() {
     <div style={{ maxWidth: "600px", margin: "0 auto"}}>
       <h1>📈 ETF Vergleich</h1>
       {selectedETFs.map((etf)=>{
-        return <ETFCard key={etf.isin} etf={etf} />
+        return <ETFCard key={etf.isin} etf={etf} onRemove={onRemove} />
       })}
     </div>
     </>

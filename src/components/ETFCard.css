@@ -1,0 +1,17 @@
+.tests button{
+align-self: center;
+width: 13%;
+background-color: grey;
+color: white;
+border: solid 3px grey;
+font-weight: 700;
+margin: 6px;
+}
+
+.tests button:hover{
+background-color: red;
+border: solid 3px red;
+}
+
+
+    
