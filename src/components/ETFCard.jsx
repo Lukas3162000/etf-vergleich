@@ -1,7 +1,7 @@
 import React from "react";
 import "./ETFCard.css";
 
-const ETFCard = ({ etf, onRemove, displayETF}) => {
+const ETFCard = ({ etf, onRemove, displayETFs}) => {
   return (
     <div style={{
       border: "1px solid #ccc",
@@ -12,7 +12,7 @@ const ETFCard = ({ etf, onRemove, displayETF}) => {
     }}>
       <div className="tests" style={{display: "flex", justifyContent:"space-around"}}>
        <h3>{etf.name}</h3>
-       <button onClick={() => displayETF(etf.isin) }>
+       <button onClick={() => displayETFs(etf.isin) }>
         +
        </button>
 

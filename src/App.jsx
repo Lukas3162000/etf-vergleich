@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 function App() {
   const [selectedETFs,setSelectedETFs] = useState([]);
 
-  const [displayedETF, setDisplayedETF] = useState();
+  const [displayedETFs, setDisplayedETFs] = useState([]);
 
   function addETF(etf){
     setSelectedETFs([...selectedETFs,etf])
@@ -20,20 +20,25 @@ function App() {
     setSelectedETFs(prevETF => prevETF.filter(etf => etf.isin !== isin));
   }
 
-  function displayETF(isin, etf){
-    const etfToDisplay = selectedETFs.find(etf => etf.isin === isin);
-    setDisplayedETF(etfToDisplay);
+  function displayETFs(isin, etf){
+    setDisplayedETFs(prev => {
+      const alreadyIncluded = prev.some(etf => etf.isin === isin);
+      if(alreadyIncluded) return prev;
+
+      const etfToAdd = selectedETFs.find(etf => etf.isin === isin);
+      return [...prev, etfToAdd];
+    })
   }
 
 
   return (
     <>
     <ETFSearch addETF={addETF} />
-    <ETFChart displayETF={displayETF} displayedETF={displayedETF}/>
+    <ETFChart displayETFs={displayETFs} displayedETFs={displayedETFs}/>
     <div>
       <h1>📈 ETF Vergleich</h1>
       {selectedETFs.map((etf)=>{
-        return <ETFCard key={etf.isin} etf={etf} onRemove={onRemove} displayETF={displayETF}/>
+        return <ETFCard key={etf.isin} etf={etf} onRemove={onRemove} displayETFs={displayETFs}/>
       })}
     </div>
     </>
