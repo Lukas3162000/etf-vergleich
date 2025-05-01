@@ -20,6 +20,10 @@ function App() {
     setSelectedETFs(prevETF => prevETF.filter(etf => etf.isin !== isin));
   }
 
+  function onRemoveDisplayed(isin){
+    setDisplayedETFs(prevETF => prevETF.filter(etf => etf.isin !== isin));
+  }
+
   function displayETFs(isin, etf){
     setDisplayedETFs(prev => {
       const alreadyIncluded = prev.some(etf => etf.isin === isin);
@@ -34,11 +38,11 @@ function App() {
   return (
     <>
     <ETFSearch addETF={addETF} />
-    <ETFChart displayETFs={displayETFs} displayedETFs={displayedETFs}/>
+    <ETFChart displayETFs={displayETFs} displayedETFs={displayedETFs} onRemoveDisplayed={onRemoveDisplayed}/>
     <div>
       <h1>📈 ETF Vergleich</h1>
       {selectedETFs.map((etf)=>{
-        return <ETFCard key={etf.isin} etf={etf} onRemove={onRemove} displayETFs={displayETFs}/>
+        return <ETFCard key={etf.isin} etf={etf} onRemove={onRemove} displayETFs={displayETFs} />
       })}
     </div>
     </>
