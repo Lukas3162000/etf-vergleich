@@ -2,6 +2,7 @@ import React from "react";
 import ETFCard from "./components/ETFCard";
 import ETFSearch from "./components/ETFSearch";
 import ETFChart from "./components/ETFChart";
+import ETFPerformance from "./components/ETFPerformance";
 import { dummyETFs } from "./data/dummyETFs";
 import "./App.css";
 import { useState, useEffect } from "react";
@@ -39,6 +40,7 @@ function App() {
     <>
     <ETFSearch addETF={addETF} />
     <ETFChart displayETFs={displayETFs} displayedETFs={displayedETFs} onRemoveDisplayed={onRemoveDisplayed}/>
+    <ETFPerformance etfs={displayedETFs}/>
     <div>
       <h1>📈 ETF Vergleich</h1>
       {selectedETFs.map((etf)=>{
