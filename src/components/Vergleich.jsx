@@ -19,7 +19,7 @@ function Vergleich({ displayETFs, displayedETFs, onRemove, onRemoveDisplayed, ha
     <div>
       <h1>📈 ETF Vergleich</h1>
       {selectedETFs.map((etf)=>{
-        return <ETFCard key={etf.isin} etf={etf} onRemove={onRemove} displayETFs={displayETFs} />
+        return <ETFCard key={etf.isin} etf={etf} onRemove={onRemove} displayETFs={displayETFs} handleAddFavorite={handleAddFavorite}/>
       })}
     </div>
     </>

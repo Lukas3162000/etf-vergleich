@@ -1,7 +1,8 @@
 import React from "react";
-import "./ETFCard.css";
+import "./FavoriteCard.css";
 
-const ETFCard = ({ etf, onRemove, displayETFs, handleAddFavorite}) => {
+const FavoriteCard = ({ etf, handleAddFavorite }) => {
+  console.log("Favorite ETF:", etf);
   return (
     <div style={{
       border: "1px solid #ccc",
@@ -13,16 +14,9 @@ const ETFCard = ({ etf, onRemove, displayETFs, handleAddFavorite}) => {
       <div className="tests">
        <h3>{etf.name}</h3>
        <div className="buttons">
-         <button onClick={() => handleAddFavorite(etf.isin)}>
+         <button onClick={() => handleAddFavorite(etf)}>
           <span>★</span>
          </button>
-         <button onClick={() => displayETFs(etf.isin) }>
-          +
-        </button>
-
-        <button onClick={() => onRemove(etf.isin)}>
-         x
-          </button>
         </div>
  
       </div>
@@ -34,4 +28,4 @@ const ETFCard = ({ etf, onRemove, displayETFs, handleAddFavorite}) => {
   );
 };
 
-export default ETFCard;
+export default FavoriteCard;
