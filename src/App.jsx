@@ -37,8 +37,14 @@ export default function App() {
 
       const handleAddFavorite = (etf) => {
         if(!favoriteETFs.find(f => f.isin === etf.isin)){
-            setFavoriteETFs(prev => {/*HIER DAS NÄCHSTE MAL WEITER*/});
+            setFavoriteETFs([...favoriteETFs, etf]);
         }
+      };
+
+      const handleRemoveFavorite = (etf) => {
+        setFavoriteETFs(prevFavorites =>
+          prevFavorites.filter(f => f.isin !== etf.isin)
+        );
       };
 
       return(
@@ -50,7 +56,7 @@ export default function App() {
 
             <Routes>
                 <Route path="/" element={<Vergleich displayedETFs={displayedETFs} addETF={addETF} selectedETFs={selectedETFs} onRemove={onRemove} onRemoveDisplayed={onRemoveDisplayed} displayETFs={displayETFs} handleAddFavorite={handleAddFavorite}/>}/>
-                <Route path="/Favoriten" element={<Favoriten favoriteETFs={favoriteETFs} handleAddFavorite={handleAddFavorite}/>} />
+                <Route path="/Favoriten" element={<Favoriten favoriteETFs={favoriteETFs} handleAddFavorite={handleAddFavorite} handleRemoveFavorite={handleRemoveFavorite}/>} />
             </Routes>
         </BrowserRouter>
       );

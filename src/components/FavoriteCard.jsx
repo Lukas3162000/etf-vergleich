@@ -1,7 +1,7 @@
 import React from "react";
 import "./FavoriteCard.css";
 
-const FavoriteCard = ({ etf, handleAddFavorite }) => {
+const FavoriteCard = ({ etf, handleAddFavorite, handleRemoveFavorite }) => {
   console.log("Favorite ETF:", etf);
   return (
     <div style={{
@@ -16,6 +16,10 @@ const FavoriteCard = ({ etf, handleAddFavorite }) => {
        <div className="buttons">
          <button onClick={() => handleAddFavorite(etf)}>
           <span>★</span>
+         </button>
+
+          <button onClick={() => handleRemoveFavorite(etf)}>
+          <span>X</span>
          </button>
         </div>
  

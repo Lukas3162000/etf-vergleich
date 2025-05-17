@@ -13,7 +13,7 @@ const ETFCard = ({ etf, onRemove, displayETFs, handleAddFavorite}) => {
       <div className="tests">
        <h3>{etf.name}</h3>
        <div className="buttons">
-         <button onClick={() => handleAddFavorite(etf.isin)}>
+         <button onClick={() => handleAddFavorite(etf)}>
           <span>★</span>
          </button>
          <button onClick={() => displayETFs(etf.isin) }>
